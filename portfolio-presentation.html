@@ -1,0 +1,1729 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280" />
+    <title>Nagwa Othman | Portfolio Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --y: #FFFF00;
+            --bg: #0a0a0a;
+            --card: #1a1a1a;
+            --muted: #999;
+            --glow: 0 0 30px rgba(255, 255, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #222;
+            font-family: 'Inter', sans-serif;
+            color: #fff;
+        }
+
+        /* ── Each slide: exactly 1280×720 (16:9) ── */
+        .slide {
+            width: 1280px;
+            height: 720px;
+            background: var(--bg);
+            position: relative;
+            overflow: hidden;
+            margin: 24px auto;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.8);
+            page-break-after: always;
+            page-break-inside: avoid;
+        }
+
+        /* ── Grid overlay ── */
+        .slide::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background-image:
+                linear-gradient(rgba(255, 255, 0, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 0, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+
+        .slide-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 0;
+        }
+
+        /* ── Shared typography ── */
+        .display {
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .yellow {
+            color: var(--y);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        .label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--y);
+        }
+
+        .big-num {
+            font-family: 'Bebas Neue';
+            font-size: 120px;
+            line-height: 0.85;
+            color: var(--y);
+            text-shadow: var(--glow);
+        }
+
+        /* ── Yellow left accent panel ── */
+        .accent-panel {
+            width: 8px;
+            background: var(--y);
+            flex-shrink: 0;
+            height: 100%;
+        }
+
+        /* ── Slide number watermark ── */
+        .slide-num {
+            position: absolute;
+            bottom: 28px;
+            right: 40px;
+            font-family: 'Bebas Neue';
+            font-size: 14px;
+            color: rgba(255, 255, 0, 0.2);
+            letter-spacing: 3px;
+        }
+
+        /* ── Bottom yellow bar ── */
+        .slide-footer {
+            position: absolute;
+            bottom: 0;
+            left: 8px;
+            right: 0;
+            height: 4px;
+            background: var(--y);
+            opacity: 0.25;
+        }
+
+        /* ======================================================
+       SLIDE 1 — HERO / COVER
+    ====================================================== */
+        .slide-hero .slide-inner {
+            align-items: stretch;
+        }
+
+        .hero-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 50px 60px 64px;
+        }
+
+        .hero-tag {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--y);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-tag-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--y);
+        }
+
+        .hero-name {
+            font-family: 'Bebas Neue';
+            font-size: 120px;
+            line-height: 0.85;
+            color: var(--y);
+            text-shadow: var(--glow);
+            margin-bottom: 16px;
+        }
+
+        .hero-rule {
+            width: 60px;
+            height: 2px;
+            background: var(--y);
+            margin-bottom: 12px;
+        }
+
+        .hero-role {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .hero-bio {
+            font-size: 15px;
+            color: #bbb;
+            line-height: 1.7;
+            max-width: 420px;
+            margin-bottom: 30px;
+        }
+
+        .hero-contacts {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .hc {
+            font-size: 13px;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hc-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--y);
+            flex-shrink: 0;
+        }
+
+        .hero-right {
+            width: 340px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+            border-left: 1px solid rgba(255, 255, 0, 0.15);
+            padding: 40px 30px;
+            gap: 24px;
+        }
+
+        .hero-photo-frame {
+            width: 220px;
+            height: 260px;
+            border: 3px solid var(--y);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+        }
+
+        .hero-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 24px;
+        }
+
+        .hstat {
+            text-align: center;
+            background: rgba(255, 255, 0, 0.08);
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            border-radius: 10px;
+            padding: 12px 20px;
+        }
+
+        .hstat-num {
+            font-family: 'Bebas Neue';
+            font-size: 36px;
+            color: var(--y);
+            line-height: 1;
+        }
+
+        .hstat-label {
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* ======================================================
+       SLIDE 2 — ABOUT
+    ====================================================== */
+        .slide-about .slide-inner {
+            align-items: stretch;
+        }
+
+        .about-left {
+            flex: 1;
+            padding: 50px 0 50px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-right {
+            width: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+            border-left: 1px solid rgba(255, 255, 0, 0.1);
+            padding: 40px 36px;
+        }
+
+        .about-photo-frame {
+            width: 200px;
+            height: 240px;
+            border: 3px solid var(--y);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+        }
+
+        .about-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .about-section-title {
+            font-family: 'Bebas Neue';
+            font-size: 80px;
+            color: var(--y);
+            line-height: 0.88;
+            margin-bottom: 24px;
+            text-shadow: 0 0 40px rgba(255, 255, 0, 0.15);
+        }
+
+        .about-lead {
+            font-size: 16px;
+            color: #ddd;
+            line-height: 1.7;
+            margin-bottom: 14px;
+            max-width: 480px;
+        }
+
+        .about-lead strong {
+            color: var(--y);
+        }
+
+        .about-body {
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 480px;
+            margin-bottom: 28px;
+        }
+
+        .stats-row {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .stat-b {
+            text-align: center;
+        }
+
+        .stat-b-num {
+            font-family: 'Bebas Neue';
+            font-size: 48px;
+            color: var(--y);
+            line-height: 1;
+        }
+
+        .stat-b-label {
+            font-size: 10px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .stat-divider {
+            width: 1px;
+            height: 50px;
+            background: rgba(255, 255, 0, 0.2);
+        }
+
+        /* ======================================================
+       SLIDE 3 — SERVICES (WHAT I DO)
+    ====================================================== */
+        .slide-services .slide-inner {
+            flex-direction: column;
+            padding: 44px 64px 40px;
+        }
+
+        .slide-header {
+            margin-bottom: 32px;
+        }
+
+        .slide-main-title {
+            font-family: 'Bebas Neue';
+            font-size: 64px;
+            color: var(--y);
+            line-height: 0.88;
+            text-shadow: 0 0 40px rgba(255, 255, 0, 0.1);
+        }
+
+        .services-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            flex: 1;
+        }
+
+        .svc-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            border-left: 4px solid var(--y);
+            border-radius: 8px;
+            padding: 20px 18px;
+        }
+
+        .svc-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .svc-title {
+            font-family: 'Montserrat';
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--y);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .svc-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ======================================================
+       SLIDE 4 — PROCESS
+    ====================================================== */
+        .slide-process .slide-inner {
+            flex-direction: column;
+            padding: 44px 64px 40px;
+        }
+
+        .process-cols {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .proc-item {
+            text-align: center;
+        }
+
+        .proc-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--y);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue';
+            font-size: 20px;
+            margin: 0 auto 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 0, 0.3);
+        }
+
+        .proc-line {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 0, 0.25);
+            margin: -36px 0 34px;
+            display: block;
+        }
+
+        .proc-connector-row {
+            display: flex;
+            align-items: center;
+            margin: 12px 0 20px;
+            padding: 0 28px;
+        }
+
+        .proc-connector-dot {
+            width: 56px;
+            height: 56px;
+            flex-shrink: 0;
+        }
+
+        /* spacer aligned with circles */
+        .proc-connector-line {
+            flex: 1;
+            height: 2px;
+            background: rgba(255, 255, 0, 0.2);
+        }
+
+        .proc-title {
+            font-family: 'Montserrat';
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--y);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .proc-desc {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ======================================================
+       SLIDE 5,6,7 — PROJECTS
+    ====================================================== */
+        .slide-project .slide-inner {
+            align-items: stretch;
+        }
+
+        .proj-vis {
+            width: 480px;
+            flex-shrink: 0;
+            background: #111;
+            border-right: 1px solid rgba(255, 255, 0, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px;
+        }
+
+        .proj-mockup {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .mockup-bar {
+            display: flex;
+            gap: 5px;
+            padding: 9px 12px;
+            background: #222;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mockup-bar span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #333;
+        }
+
+        .mockup-bar span:first-child {
+            background: #ff5f57;
+        }
+
+        .mockup-bar span:nth-child(2) {
+            background: #ffbd2e;
+        }
+
+        .mockup-bar span:nth-child(3) {
+            background: #28ca41;
+        }
+
+        .mockup-content {
+            padding: 18px;
+        }
+
+        .mockup-bars-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 90px;
+            margin-bottom: 12px;
+        }
+
+        .mb {
+            flex: 1;
+            background: linear-gradient(to top, var(--y), rgba(255, 255, 0, 0.35));
+            border-radius: 2px 2px 0 0;
+        }
+
+        .mockup-line svg {
+            width: 100%;
+            display: block;
+        }
+
+        .mockup-tbl .mt-h {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr 0.8fr;
+            padding: 6px 8px;
+            background: rgba(255, 255, 0, 0.08);
+            font-size: 10px;
+            color: var(--y);
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            margin-bottom: 3px;
+        }
+
+        .mockup-tbl .mt-r {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr 0.8fr;
+            padding: 7px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .mt-hl {
+            color: #fff !important;
+        }
+
+        .mt-up {
+            color: var(--y) !important;
+            font-weight: 700;
+        }
+
+        .mockup-donut {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mockup-donut svg {
+            width: 100px;
+            flex-shrink: 0;
+        }
+
+        .mockup-bars-v {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mbv-row {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .mbv-label {
+            font-size: 10px;
+            color: var(--muted);
+        }
+
+        .mbv-track {
+            height: 5px;
+            background: #2d2d2d;
+            border-radius: 3px;
+        }
+
+        .mbv-fill {
+            height: 100%;
+            background: var(--y);
+            border-radius: 3px;
+        }
+
+        .proj-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 48px 40px 44px;
+        }
+
+        .proj-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            color: #000;
+            background: var(--y);
+            padding: 3px 12px;
+            border-radius: 3px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .proj-title {
+            font-family: 'Bebas Neue';
+            font-size: 60px;
+            color: var(--y);
+            line-height: 0.88;
+            margin-bottom: 14px;
+        }
+
+        .proj-desc {
+            font-size: 13px;
+            color: #bbb;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .proj-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .proj-bullets li {
+            font-size: 13px;
+            color: #ccc;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .bul {
+            color: var(--y);
+            flex-shrink: 0;
+            margin-top: 1px;
+            font-size: 12px;
+        }
+
+        /* ======================================================
+       SLIDE 8 — EXPERIENCE
+    ====================================================== */
+        .slide-exp .slide-inner {
+            flex-direction: column;
+            padding: 44px 64px 40px;
+        }
+
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .exp-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 0, 0.18);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .exp-accent {
+            width: 4px;
+            background: var(--y);
+            flex-shrink: 0;
+        }
+
+        .exp-body {
+            padding: 18px 18px 18px 14px;
+        }
+
+        .exp-date {
+            font-size: 11px;
+            color: var(--y);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .exp-title2 {
+            font-family: 'Montserrat';
+            font-size: 13px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .exp-company {
+            font-size: 11px;
+            color: var(--y);
+            margin-bottom: 10px;
+        }
+
+        .exp-pts {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .exp-pts li {
+            font-size: 11px;
+            color: var(--muted);
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .exp-pts li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--y);
+        }
+
+        /* ======================================================
+       SLIDE 9 — SKILLS
+    ====================================================== */
+        .slide-skills .slide-inner {
+            flex-direction: column;
+            padding: 44px 64px 40px;
+        }
+
+        .skills-grid2 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .sk-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 0, 0.18);
+            border-radius: 8px;
+            padding: 18px 16px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .sk-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 0, 0.1);
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sk-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--y);
+        }
+
+        .sk-cat-title {
+            font-family: 'Montserrat';
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--y);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .sk-list {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* ======================================================
+       SLIDE 10 — PRICING
+    ====================================================== */
+        .slide-pricing .slide-inner {
+            flex-direction: column;
+            padding: 44px 64px 40px;
+        }
+
+        .pricing-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+
+        .pr-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 0, 0.2);
+            border-radius: 8px;
+            padding: 22px 18px;
+            position: relative;
+        }
+
+        .pr-featured {
+            background: var(--y);
+        }
+
+        .pr-badge-chip {
+            position: absolute;
+            top: -11px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #000;
+            color: var(--y);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 12px;
+            border: 1px solid var(--y);
+            white-space: nowrap;
+        }
+
+        .pr-num {
+            font-family: 'Bebas Neue';
+            font-size: 30px;
+            color: var(--y);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .pr-featured .pr-num {
+            color: #000;
+        }
+
+        .pr-title {
+            font-family: 'Montserrat';
+            font-size: 12px;
+            font-weight: 800;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .pr-featured .pr-title {
+            color: #000;
+        }
+
+        .pr-price {
+            font-family: 'Bebas Neue';
+            font-size: 36px;
+            color: var(--y);
+            margin-bottom: 14px;
+            line-height: 1;
+        }
+
+        .pr-featured .pr-price {
+            color: #000;
+        }
+
+        .pr-price span {
+            font-family: 'Inter';
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .pr-featured .pr-price span {
+            color: #555;
+        }
+
+        .pr-features {
+            list-style: none;
+        }
+
+        .pr-features li {
+            font-size: 11px;
+            color: var(--muted);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding-left: 14px;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .pr-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--y);
+            font-weight: 700;
+        }
+
+        .pr-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pr-featured .pr-features li {
+            color: #333;
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .pr-featured .pr-features li::before {
+            color: #000;
+        }
+
+        /* ======================================================
+       SLIDE 11 — CTA / CONTACT
+    ====================================================== */
+        .slide-cta .slide-inner {
+            align-items: stretch;
+        }
+
+        .cta-left {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 50px 50px 64px;
+        }
+
+        .cta-big {
+            font-family: 'Bebas Neue';
+            font-size: 90px;
+            line-height: 0.85;
+            color: var(--y);
+            text-shadow: var(--glow);
+            margin-bottom: 20px;
+        }
+
+        .cta-sub {
+            font-size: 16px;
+            color: #bbb;
+            margin-bottom: 28px;
+        }
+
+        .cta-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .cta-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .cta-link-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--y);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--y);
+            color: #000;
+            font-weight: 800;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+
+        .cta-right {
+            width: 380px;
+            flex-shrink: 0;
+            background: #111;
+            border-left: 1px solid rgba(255, 255, 0, 0.12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .cta-photo-frame {
+            width: 200px;
+            height: 240px;
+            border: 3px solid var(--y);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--glow);
+        }
+
+        .cta-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .cta-ty {
+            font-family: 'Bebas Neue';
+            font-size: 48px;
+            color: var(--y);
+            text-align: center;
+            text-shadow: var(--glow);
+        }
+
+        /* ======================================================
+       PRINT / PDF SETTINGS
+    ====================================================== */
+        @page {
+            size: 1280px 720px;
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                background: #000;
+                margin: 0;
+            }
+
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                page-break-inside: avoid;
+                break-after: page;
+            }
+
+            .slide:last-child {
+                page-break-after: avoid;
+            }
+
+            .print-instruction {
+                display: none !important;
+            }
+        }
+
+        /* ── Print instruction banner ── */
+        .print-instruction {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: var(--y);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--y);
+        }
+
+        .print-instruction kbd {
+            background: var(--y);
+            color: #000;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="print-instruction">
+        Press <kbd>Ctrl + P</kbd> → Set Paper size to <strong>Custom 1280×720</strong>, Margins: <strong>None</strong>,
+        Scale: <strong>100%</strong> → Save as PDF
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 1 — COVER / HERO
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-hero">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="hero-left">
+                <div class="hero-tag">
+                    <div class="hero-tag-dot"></div>Available for Hire
+                </div>
+                <div class="hero-name display">NAGWA<br />OTHMAN</div>
+                <div class="hero-rule"></div>
+                <div class="hero-role">Freelance Data Analyst</div>
+                <div class="hero-bio">Transforming raw data into clear, <span style="color:var(--y)">actionable
+                        insights</span> that drive strategic business decisions.</div>
+                <div class="hero-contacts">
+                    <div class="hc">
+                        <div class="hc-dot"></div><span>nagwa.othman@email.com</span>
+                    </div>
+                    <div class="hc">
+                        <div class="hc-dot"></div><span>+20 100 000 0000</span>
+                    </div>
+                    <div class="hc">
+                        <div class="hc-dot"></div><span>Cairo, Egypt</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="hero-photo-frame">
+                    <img src="WhatsApp%20Image%202026-03-06%20at%2012.15.37%20PM.jpeg" alt="Nagwa Othman" />
+                </div>
+                <div class="hero-stats">
+                    <div class="hstat">
+                        <div class="hstat-num">3+</div>
+                        <div class="hstat-label">Years Exp.</div>
+                    </div>
+                    <div class="hstat">
+                        <div class="hstat-num">50+</div>
+                        <div class="hstat-label">Projects</div>
+                    </div>
+                    <div class="hstat">
+                        <div class="hstat-num">100%</div>
+                        <div class="hstat-label">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">01 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 2 — ABOUT
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-about">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="about-left">
+                <div class="label" style="margin-bottom:10px;">01 — About</div>
+                <div class="about-section-title display">WHO<br />I AM</div>
+                <p class="about-lead">I'm <strong>Nagwa Othman</strong>, a results-driven <strong>Freelance Data
+                        Analyst</strong> with over 3 years of experience turning complex datasets into <span
+                        style="color:var(--y)">strategic business advantages.</span></p>
+                <p class="about-body" style="margin-top:10px;">My expertise spans the full data pipeline — from
+                    collection and cleaning to advanced analysis, visualization, and storytelling across e-commerce,
+                    finance, healthcare, and marketing.</p>
+                <div class="stats-row" style="margin-top:24px;">
+                    <div class="stat-b">
+                        <div class="stat-b-num">3+</div>
+                        <div class="stat-b-label">Years Experience</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-b">
+                        <div class="stat-b-num">50+</div>
+                        <div class="stat-b-label">Projects Done</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-b">
+                        <div class="stat-b-num">100%</div>
+                        <div class="stat-b-label">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-right">
+                <div class="about-photo-frame">
+                    <img src="WhatsApp%20Image%202026-03-06%20at%2012.15.37%20PM.jpeg" alt="Nagwa Othman" />
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">02 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 3 — SERVICES
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-services">
+        <div class="accent-panel"></div>
+        <div class="slide-inner">
+            <div style="flex:1;display:flex;flex-direction:column;padding:44px 64px 40px;">
+                <div class="label" style="margin-bottom:8px;">02 — Services</div>
+                <div class="slide-main-title display" style="margin-bottom:28px;">WHAT I DO</div>
+                <div class="services-row">
+                    <div class="svc-card">
+                        <div class="svc-icon">📈</div>
+                        <div class="svc-title">Data Analysis &amp; Insights</div>
+                        <div class="svc-desc">Deep-dive analysis to identify trends, anomalies, and growth
+                            opportunities.</div>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-icon">📊</div>
+                        <div class="svc-title">Dashboard Design</div>
+                        <div class="svc-desc">Interactive dashboards in Power BI, Tableau, and Looker for real-time KPI
+                            visibility.</div>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-icon">🗄️</div>
+                        <div class="svc-title">Data Cleaning &amp; ETL</div>
+                        <div class="svc-desc">Transform messy data into clean datasets. Build automated pipelines that
+                            save hours.</div>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-icon">📋</div>
+                        <div class="svc-title">Statistical Reporting</div>
+                        <div class="svc-desc">Executive-ready reports with forecasting models and stakeholder-ready
+                            visuals.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">03 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 4 — PROCESS
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-process">
+        <div class="accent-panel"></div>
+        <div class="slide-inner">
+            <div style="flex:1;display:flex;flex-direction:column;padding:44px 64px 40px;">
+                <div class="label" style="margin-bottom:8px;">04 — How I Work</div>
+                <div class="slide-main-title display" style="margin-bottom:30px;">MY PROCESS</div>
+                <div style="position:relative;">
+                    <!-- connector line behind circles -->
+                    <div
+                        style="position:absolute;top:28px;left:calc(56px/2 + 0px);right:calc(56px/2);height:2px;background:rgba(255,255,0,0.2);z-index:0;">
+                    </div>
+                    <div class="process-cols">
+                        <div class="proc-item" style="z-index:1;position:relative;">
+                            <div class="proc-circle">01</div>
+                            <div class="proc-title">Discovery &amp; Scoping</div>
+                            <div class="proc-desc">Deep-dive session to define goals, scope, and deliverables.</div>
+                        </div>
+                        <div class="proc-item" style="z-index:1;position:relative;">
+                            <div class="proc-circle">02</div>
+                            <div class="proc-title">Data Collection &amp; Audit</div>
+                            <div class="proc-desc">Audit sources, assess quality, and design transformation plan.</div>
+                        </div>
+                        <div class="proc-item" style="z-index:1;position:relative;">
+                            <div class="proc-circle">03</div>
+                            <div class="proc-title">Analysis &amp; Modeling</div>
+                            <div class="proc-desc">Uncover patterns, test hypotheses, and build predictive models.</div>
+                        </div>
+                        <div class="proc-item" style="z-index:1;position:relative;">
+                            <div class="proc-circle">04</div>
+                            <div class="proc-title">Visualization</div>
+                            <div class="proc-desc">Translate findings into compelling dashboards and visual stories.
+                            </div>
+                        </div>
+                        <div class="proc-item" style="z-index:1;position:relative;">
+                            <div class="proc-circle">05</div>
+                            <div class="proc-title">Delivery &amp; Handoff</div>
+                            <div class="proc-desc">Deliver, review, document, and hand off with training sessions.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">04 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 5 — PROJECT 1
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-project">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="proj-vis">
+                <div class="proj-mockup">
+                    <div class="mockup-bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-content">
+                        <div class="mockup-bars-row">
+                            <div class="mb" style="height:62%"></div>
+                            <div class="mb" style="height:85%"></div>
+                            <div class="mb" style="height:47%"></div>
+                            <div class="mb" style="height:96%"></div>
+                            <div class="mb" style="height:72%"></div>
+                            <div class="mb" style="height:58%"></div>
+                        </div>
+                        <div class="mockup-line"><svg viewBox="0 0 200 50">
+                                <defs>
+                                    <linearGradient id="lg1" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#FFFF00" stop-opacity="0.2" />
+                                        <stop offset="100%" stop-color="#FFFF00" stop-opacity="0" />
+                                    </linearGradient>
+                                </defs>
+                                <polygon points="0,45 40,32 80,18 120,27 160,8 200,18 200,50 0,50" fill="url(#lg1)" />
+                                <polyline points="0,45 40,32 80,18 120,27 160,8 200,18" fill="none" stroke="#FFFF00"
+                                    stroke-width="2" stroke-linecap="round" />
+                            </svg></div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-info">
+                <div class="proj-tag">E-Commerce Analytics</div>
+                <div class="proj-title display">SALES PERFORMANCE<br />DASHBOARD</div>
+                <div class="proj-desc">End-to-end analytics dashboard for a multi-channel e-commerce brand tracking
+                    revenue, conversion rates, and CLV across 6 markets.</div>
+                <ul class="proj-bullets">
+                    <li><span class="bul">▶</span> Integrated Shopify, Google Ads &amp; Meta Ads data</li>
+                    <li><span class="bul">▶</span> Reduced reporting time from 6 hours to 15 minutes</li>
+                    <li><span class="bul">▶</span> Identified $120K in recoverable revenue leaks</li>
+                    <li><span class="bul">▶</span> <strong style="color:var(--y)">Stack:</strong> Power BI · Python ·
+                        SQL Server</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-num">05 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 6 — PROJECT 2
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-project">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="proj-vis">
+                <div class="proj-mockup">
+                    <div class="mockup-bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-content">
+                        <div class="mockup-donut">
+                            <svg viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="37" fill="none" stroke="#2d2d2d" stroke-width="12" />
+                                <circle cx="50" cy="50" r="37" fill="none" stroke="#FFFF00" stroke-width="12"
+                                    stroke-dasharray="150 82" stroke-linecap="round" transform="rotate(-90 50 50)" />
+                                <text x="50" y="46" text-anchor="middle" fill="#FFFF00" font-size="16"
+                                    font-weight="bold" font-family="Bebas Neue">87%</text><text x="50" y="58"
+                                    text-anchor="middle" fill="#888" font-size="7" font-family="Inter">Efficiency</text>
+                            </svg>
+                            <div class="mockup-bars-v">
+                                <div class="mbv-row">
+                                    <div class="mbv-label">Throughput</div>
+                                    <div class="mbv-track">
+                                        <div class="mbv-fill" style="width:65%"></div>
+                                    </div>
+                                </div>
+                                <div class="mbv-row">
+                                    <div class="mbv-label">Quality</div>
+                                    <div class="mbv-track">
+                                        <div class="mbv-fill" style="width:90%"></div>
+                                    </div>
+                                </div>
+                                <div class="mbv-row">
+                                    <div class="mbv-label">Speed</div>
+                                    <div class="mbv-track">
+                                        <div class="mbv-fill" style="width:77%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-info">
+                <div class="proj-tag">Healthcare Analytics</div>
+                <div class="proj-title display">PATIENT FLOW<br />OPTIMIZATION</div>
+                <div class="proj-desc">Analyzed patient intake, wait times, and discharge patterns for a regional
+                    hospital network to identify bottlenecks and improve efficiency.</div>
+                <ul class="proj-bullets">
+                    <li><span class="bul">▶</span> Processed 200K+ patient records with Python &amp; Pandas</li>
+                    <li><span class="bul">▶</span> Built predictive model for daily patient volume</li>
+                    <li><span class="bul">▶</span> Reduced average wait times by 23%</li>
+                    <li><span class="bul">▶</span> <strong style="color:var(--y)">Stack:</strong> Python · Tableau ·
+                        PostgreSQL</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-num">06 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 7 — PROJECT 3
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-project">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="proj-vis">
+                <div class="proj-mockup">
+                    <div class="mockup-bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-content">
+                        <div class="mockup-tbl">
+                            <div class="mt-h">
+                                <div>Segment</div>
+                                <div>Revenue</div>
+                                <div>Growth</div>
+                            </div>
+                            <div class="mt-r mt-hl">
+                                <div>Enterprise</div>
+                                <div>$2.4M</div>
+                                <div class="mt-up">↑ 34%</div>
+                            </div>
+                            <div class="mt-r">
+                                <div>SMB</div>
+                                <div>$890K</div>
+                                <div class="mt-up">↑ 12%</div>
+                            </div>
+                            <div class="mt-r">
+                                <div>Startup</div>
+                                <div>$340K</div>
+                                <div class="mt-up">↑ 8%</div>
+                            </div>
+                            <div class="mt-r mt-hl">
+                                <div>Total</div>
+                                <div>$3.63M</div>
+                                <div class="mt-up">↑ 21%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-info">
+                <div class="proj-tag">Financial Analytics</div>
+                <div class="proj-title display">REVENUE<br />INTELLIGENCE</div>
+                <div class="proj-desc">Comprehensive revenue intelligence system for a SaaS company covering MRR, churn
+                    analysis, cohort retention, and segment profitability.</div>
+                <ul class="proj-bullets">
+                    <li><span class="bul">▶</span> Built automated monthly P&amp;L reporting pipeline</li>
+                    <li><span class="bul">▶</span> Cohort analysis revealed 40% improvement opportunities</li>
+                    <li><span class="bul">▶</span> Forecast accuracy improved by 18% over 6 months</li>
+                    <li><span class="bul">▶</span> <strong style="color:var(--y)">Stack:</strong> Excel · Looker Studio
+                        · BigQuery</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-num">07 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 8 — EXPERIENCE
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-exp">
+        <div class="accent-panel"></div>
+        <div class="slide-inner">
+            <div style="flex:1;display:flex;flex-direction:column;padding:44px 64px 40px;">
+                <div class="label" style="margin-bottom:8px;">06 — Experience</div>
+                <div class="slide-main-title display" style="margin-bottom:24px;">WORK HISTORY</div>
+                <div class="exp-grid">
+                    <div class="exp-card">
+                        <div class="exp-accent"></div>
+                        <div class="exp-body">
+                            <div class="exp-date">2023 — Present</div>
+                            <div class="exp-title2">Senior Freelance Data Analyst</div>
+                            <div class="exp-company">Self-Employed · Remote</div>
+                            <ul class="exp-pts">
+                                <li>30+ projects across e-commerce, healthcare, finance</li>
+                                <li>Reporting automation saving clients 70% overhead</li>
+                                <li>5-star Upwork rating · 100% job success</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-accent"></div>
+                        <div class="exp-body">
+                            <div class="exp-date">2021 — 2023</div>
+                            <div class="exp-title2">Data Analyst</div>
+                            <div class="exp-company">Tech Company · Cairo, Egypt</div>
+                            <ul class="exp-pts">
+                                <li>Analyzed 500K+ customer records with Python &amp; SQL</li>
+                                <li>Power BI dashboards adopted across 5 departments</li>
+                                <li>Reduced data errors by 45% via quality processes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-accent"></div>
+                        <div class="exp-body">
+                            <div class="exp-date">2020 — 2021</div>
+                            <div class="exp-title2">Junior Data Analyst</div>
+                            <div class="exp-company">Digital Agency · Cairo, Egypt</div>
+                            <ul class="exp-pts">
+                                <li>Weekly performance reports for 20+ client accounts</li>
+                                <li>Automated Excel workflows using VBA &amp; Python</li>
+                                <li>Market research and competitive analysis support</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">08 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 9 — SKILLS
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-skills">
+        <div class="accent-panel"></div>
+        <div class="slide-inner">
+            <div style="flex:1;display:flex;flex-direction:column;padding:44px 64px 40px;">
+                <div class="label" style="margin-bottom:8px;">07 — Skills &amp; Tools</div>
+                <div class="slide-main-title display" style="margin-bottom:20px;">SKILLS &amp; TOOLS</div>
+                <div class="skills-grid2">
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M8 12l8 8-8 8" />
+                                <line x1="20" y1="28" x2="36" y2="28" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">Programming</div>
+                            <div class="sk-list">Python · Pandas · NumPy · SQL · DAX · VBA</div>
+                        </div>
+                    </div>
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <rect x="4" y="8" width="40" height="32" rx="4" />
+                                <line x1="4" y1="18" x2="44" y2="18" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">BI &amp; Visualization</div>
+                            <div class="sk-list">Power BI · Tableau · Looker Studio · Excel</div>
+                        </div>
+                    </div>
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <ellipse cx="24" cy="14" rx="18" ry="6" />
+                                <path d="M6 14v8c0 3.31 8.06 6 18 6s18-2.69 18-6v-8" />
+                                <path d="M6 22v8c0 3.31 8.06 6 18 6s18-2.69 18-6v-8" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">Databases</div>
+                            <div class="sk-list">MySQL · PostgreSQL · SQL Server · BigQuery</div>
+                        </div>
+                    </div>
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M12 22l8-8 8 8 8-8" />
+                                <path d="M12 32l8-8 8 8 8-8" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">Analytics Methods</div>
+                            <div class="sk-list">EDA · A/B Testing · Cohort Analysis · Forecasting</div>
+                        </div>
+                    </div>
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <circle cx="24" cy="24" r="18" />
+                                <path d="M24 6v18l10 6" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">Project &amp; Reporting</div>
+                            <div class="sk-list">Notion · Jira · Canva · PowerPoint · Figma</div>
+                        </div>
+                    </div>
+                    <div class="sk-card">
+                        <div class="sk-icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path d="M6 36l12-12 8 6 8-8 8-4" />
+                            </svg></div>
+                        <div>
+                            <div class="sk-cat-title">Marketing Analytics</div>
+                            <div class="sk-list">Google Analytics · Meta Ads · UTM · CLV · Funnels</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">09 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 10 — PRICING
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-pricing">
+        <div class="accent-panel"></div>
+        <div class="slide-inner">
+            <div style="flex:1;display:flex;flex-direction:column;padding:44px 64px 40px;">
+                <div class="label" style="margin-bottom:8px;">08 — Investment</div>
+                <div class="slide-main-title display" style="margin-bottom:24px;">PRICING TIERS</div>
+                <div class="pricing-row">
+                    <div class="pr-card">
+                        <div class="pr-num">01</div>
+                        <div class="pr-title">Starter</div>
+                        <div class="pr-price">$150<span>/project</span></div>
+                        <ul class="pr-features">
+                            <li>Basic data analysis report</li>
+                            <li>Up to 3 visualizations</li>
+                            <li>Excel/CSV deliverable</li>
+                            <li>3-day turnaround</li>
+                            <li>1 revision round</li>
+                        </ul>
+                    </div>
+                    <div class="pr-card pr-featured">
+                        <div class="pr-badge-chip">Most Popular</div>
+                        <div class="pr-num">02</div>
+                        <div class="pr-title">Professional</div>
+                        <div class="pr-price">$450<span>/project</span></div>
+                        <ul class="pr-features">
+                            <li>Comprehensive data analysis</li>
+                            <li>Interactive Power BI dashboard</li>
+                            <li>Python/SQL scripts included</li>
+                            <li>7-day turnaround</li>
+                            <li>3 revision rounds</li>
+                        </ul>
+                    </div>
+                    <div class="pr-card">
+                        <div class="pr-num">03</div>
+                        <div class="pr-title">Advanced</div>
+                        <div class="pr-price">$850<span>/project</span></div>
+                        <ul class="pr-features">
+                            <li>Full EDA + predictive model</li>
+                            <li>Multi-page dashboard suite</li>
+                            <li>Automated ETL pipeline</li>
+                            <li>14-day turnaround</li>
+                            <li>Unlimited revisions</li>
+                        </ul>
+                    </div>
+                    <div class="pr-card">
+                        <div class="pr-num">04</div>
+                        <div class="pr-title">Enterprise</div>
+                        <div class="pr-price">Custom<span>/month</span></div>
+                        <ul class="pr-features">
+                            <li>Dedicated monthly retainer</li>
+                            <li>End-to-end BI solution</li>
+                            <li>Team training included</li>
+                            <li>Ongoing maintenance</li>
+                            <li>Priority support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-num">10 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════
+     SLIDE 11 — CTA / CONTACT
+════════════════════════════════════════════════════ -->
+    <div class="slide slide-cta">
+        <div class="accent-panel"></div>
+        <div class="slide-inner" style="flex-direction:row;">
+            <div class="cta-left">
+                <div class="label" style="margin-bottom:12px;">09 — Contact</div>
+                <div class="cta-big display">LET'S BUILD<br />SOMETHING<br /><span style="color:#fff">GREAT</span></div>
+                <div class="cta-sub">Ready to turn your data into decisions?</div>
+                <div class="cta-links">
+                    <div class="cta-link">
+                        <div class="cta-link-dot"></div>nagwa.othman@email.com
+                    </div>
+                    <div class="cta-link">
+                        <div class="cta-link-dot"></div>+20 100 000 0000
+                    </div>
+                    <div class="cta-link">
+                        <div class="cta-link-dot"></div>linkedin.com/in/nagwa-othman
+                    </div>
+                </div>
+                <div class="cta-btn">START A PROJECT</div>
+            </div>
+            <div class="cta-right">
+                <div class="cta-photo-frame">
+                    <img src="WhatsApp%20Image%202026-03-06%20at%2012.15.37%20PM.jpeg" alt="Nagwa Othman" />
+                </div>
+                <div class="cta-ty display">THANK<br />YOU</div>
+            </div>
+        </div>
+        <div class="slide-num">11 / 11</div>
+        <div class="slide-footer"></div>
+    </div>
+
+</body>
+
+</html>
